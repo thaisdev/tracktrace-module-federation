@@ -3,6 +3,7 @@
   height: 100%;
   background-color: #333333;
   padding: 20px;
+  display: inline-block;
 }
 
 .menu .menu-item {

@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./menu.css";
 
 const Menu = () => {
   return (
     <div className="menu">
       <div className="menu-item">
-        <a href="#">FLEET</a>
+        <Link to="/fleet">FLEET</Link>
       </div>
       <div className="menu-item">
-        <a href="#">ALERT</a>
+        <Link to="/alert">ALERT</Link>
       </div>
     </div>
   );

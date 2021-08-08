@@ -1,14 +1,19 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "./dist"),
+    publicPath: "http://localhost:9002/",
   },
   mode: "development",
   devServer: {
+    contentBase: path.resolve(__dirname, "./dist"),
+    index: "index.html",
+    port: 9002,
     historyApiFallback: true,
     hot: true,
   },
@@ -35,6 +40,13 @@ module.exports = {
       filename: "index.html",
       template: "./public/index.html",
       title: "Fleet",
+    }),
+    new ModuleFederationPlugin({
+      name: "FleetApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./FleetPage": "./src/pages/fleet",
+      },
     }),
   ],
 };

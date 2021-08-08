@@ -9,6 +9,9 @@ const Menu = () => {
         <Link to="/fleet">FLEET</Link>
       </div>
       <div className="menu-item">
+        <Link to="/fleet/business-unity">BUSINESS UNITY</Link>
+      </div>
+      <div className="menu-item">
         <Link to="/alert">ALERT</Link>
       </div>
     </div>

@@ -46,6 +46,7 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./FleetPage": "./src/pages/fleet",
+        "./BusinessUnityPage": "./src/pages/business-unity",
       },
     }),
   ],

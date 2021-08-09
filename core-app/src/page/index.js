@@ -17,17 +17,17 @@ const Page = () => {
         </Route>
         <Route exact path="/fleet">
           <Suspense fallback={<div>Loading...</div>}>
-            <FleetPage />
+            <FleetPage apiKey="CHAVE GERADA PARA O FLEET" />
           </Suspense>
         </Route>
         <Route exact path="/fleet/business-unity">
           <Suspense fallback={<div>Loading...</div>}>
-            <BusinessUnityPage />
+            <BusinessUnityPage apiKey="CHAVE GERADA PARA O FLEET" />
           </Suspense>
         </Route>
         <Route exact path="/alert">
           <Suspense fallback={<div>Loading...</div>}>
-            <AlertPage />
+            <AlertPage apiKey="CHAVE GERADA PARA O ALERT" />
           </Suspense>
         </Route>
       </Switch>

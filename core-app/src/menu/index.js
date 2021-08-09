@@ -14,6 +14,9 @@ const Menu = () => {
       <div className="menu-item">
         <Link to="/alert">ALERT</Link>
       </div>
+      <div className="menu-item">
+        <Link to="/motora">MOTORA</Link>
+      </div>
     </div>
   );
 };

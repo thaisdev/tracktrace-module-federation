@@ -3,31 +3,29 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "./dist"),
-    publicPath: "http://localhost:9001/",
+    publicPath: "http://localhost:9004/",
   },
   mode: "development",
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
     index: "index.html",
-    port: 9001,
+    port: 9004,
     historyApiFallback: true,
     hot: true,
   },
   resolve: {
-    extensions: [".jsx", ".js", ".json"],
+    extensions: [".tsx", ".ts", ".js"],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        loader: require.resolve("babel-loader"),
-        options: {
-          presets: [require.resolve("@babel/preset-react")],
-        },
+        test: /\.(js|jsx|tsx|ts)$/,
+        loader: "ts-loader",
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -39,14 +37,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./public/index.html",
-      title: "Track&Trace",
+      title: "Motora",
     }),
     new ModuleFederationPlugin({
-      name: "CoreApp",
-      remotes: {
-        FleetApp: "FleetApp@http://localhost:9002/remoteEntry.js",
-        MotoraApp: "AlertApp@http://localhost:9003/remoteEntry.js",
-        MotoraApp: "MotoraApp@http://localhost:9003/remoteEntry.js",
+      name: "MotoraApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./MotoraPage": "./src/pages/motora",
       },
     }),
   ],

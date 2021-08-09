@@ -30,6 +30,11 @@ const Page = () => {
             <AlertPage apiKey="CHAVE GERADA PARA O ALERT" />
           </Suspense>
         </Route>
+        <Route exact path="/motora">
+          <Suspense fallback={<div>Loading...</div>}>
+            <AlertPage apiKey="CHAVE GERADA PARA O MOTORA" />
+          </Suspense>
+        </Route>
       </Switch>
     </div>
   );

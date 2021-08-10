@@ -45,8 +45,8 @@ module.exports = {
       name: "CoreApp",
       remotes: {
         FleetApp: "FleetApp@http://localhost:9002/remoteEntry.js",
-        MotoraApp: "AlertApp@http://localhost:9003/remoteEntry.js",
-        MotoraApp: "MotoraApp@http://localhost:9003/remoteEntry.js",
+        AlertApp: "AlertApp@http://localhost:9003/remoteEntry.js",
+        MotoraApp: "MotoraApp@http://localhost:9004/remoteEntry.js",
       },
     }),
   ],

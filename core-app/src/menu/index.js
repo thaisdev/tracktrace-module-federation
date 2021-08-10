@@ -17,6 +17,9 @@ const Menu = () => {
       <div className="menu-item">
         <Link to="/motora">MOTORA</Link>
       </div>
+      <div className="menu-item">
+        <Link to="/tracking">TRACKING</Link>
+      </div>
     </div>
   );
 };

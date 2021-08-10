@@ -4,7 +4,7 @@ import "./fleet.css";
 const Fleet = ({ apiKey }) => {
   return (
     <div className="title">
-      <h1>Fleet</h1>
+      <h1>Fleet 2</h1>
       <p>{apiKey}</p>
     </div>
   );

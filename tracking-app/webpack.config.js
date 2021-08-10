@@ -7,13 +7,13 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "./dist"),
-    publicPath: "http://localhost:9001/",
+    publicPath: "http://localhost:9005/",
   },
   mode: "development",
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
     index: "index.html",
-    port: 9001,
+    port: 9005,
     historyApiFallback: true,
     hot: true,
   },
@@ -39,15 +39,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./public/index.html",
-      title: "Track&Trace",
+      title: "Tracking",
     }),
     new ModuleFederationPlugin({
-      name: "CoreApp",
-      remotes: {
-        FleetApp: "FleetApp@http://localhost:9002/remoteEntry.js",
-        AlertApp: "AlertApp@http://localhost:9003/remoteEntry.js",
-        MotoraApp: "MotoraApp@http://localhost:9004/remoteEntry.js",
-        TrackingApp: "TrackingApp@http://localhost:9005/remoteEntry.js",
+      name: "TrackingApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./TrackingPage": "./src/pages/tracking",
       },
     }),
   ],

@@ -7,6 +7,7 @@ const BusinessUnityPage = React.lazy(() =>
   import("FleetApp/BusinessUnityPage")
 );
 const AlertPage = React.lazy(() => import("AlertApp/AlertPage"));
+const MotoraPage = React.lazy(() => import("MotoraApp/MotoraPage"));
 const TrackingPage = React.lazy(() => import("TrackingApp/TrackingPage"));
 
 const Page = () => {
@@ -33,7 +34,7 @@ const Page = () => {
         </Route>
         <Route exact path="/motora">
           <Suspense fallback={<div>Loading...</div>}>
-            <AlertPage apiKey="CHAVE GERADA PARA O MOTORA" />
+            <MotoraPage apiKey="CHAVE GERADA PARA O MOTORA" />
           </Suspense>
         </Route>
         <Route exact path="/tracking">
